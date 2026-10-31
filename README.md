@@ -71,7 +71,7 @@ An AI-powered web application that analyzes resumes against specific job descrip
 **Ansh Kumar Yadav**
 
 - GitHub: [@anshyadav669](https://github.com/anshyadav669)
-- LinkedIn: [Connect with me](https://www.linkedin.com/in/ansh-kumar-yadav/)
+- LinkedIn: [Connect with me](https://www.linkedin.com/in/anshkumaryadav/)
 
 ---
 
