@@ -1,0 +1,24 @@
+Role: Senior Full-Stack Engineer (Python / React / Cloud)
+Location: Remote / San Francisco, CA
+
+About the Role:
+We are seeking a Senior Full-Stack Engineer to lead the design, development, and scaling of our enterprise data platform. You will build high-performance microservices, create intuitive user interfaces, and optimize cloud infrastructure serving millions of daily requests.
+
+Key Responsibilities:
+- Design, build, and maintain robust RESTful and GraphQL APIs using Python (FastAPI/Django) and Node.js.
+- Architect dynamic, responsive, and accessible frontend interfaces using React, TypeScript, and modern styling libraries (Tailwind CSS).
+- Implement efficient database schemas and queries using PostgreSQL and manage distributed caching with Redis.
+- Orchestrate cloud-native microservices using Docker, Kubernetes, and AWS (ECS, Lambda, S3, CloudFront).
+- Drive test automation (unit, integration, end-to-end) and maintain robust CI/CD pipelines via GitHub Actions.
+- Collaborate closely with product managers, UX designers, and senior stakeholders in an agile development lifecycle.
+- Mentor junior and mid-level engineers and conduct comprehensive code reviews.
+
+Qualifications & Requirements:
+- 5+ years of production experience in full-stack software development.
+- Strong proficiency in Python and modern JavaScript/TypeScript.
+- Hands-on experience with modern frontend frameworks (React, Next.js, or Vue.js).
+- Deep experience with relational databases (PostgreSQL) and in-memory caches (Redis).
+- Proven knowledge of containerization (Docker, Kubernetes) and AWS cloud services.
+- Familiarity with CI/CD automation, Terraform (Infrastructure as Code), and observability tools (Datadog/Prometheus).
+- Excellent communication skills, self-direction, and problem-solving mindset.
+- Bachelor's or Master's degree in Computer Science, Software Engineering, or equivalent practical experience.
