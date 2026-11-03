@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Create Axios client with base URL pointing to FastAPI
 const api = axios.create({
-  baseURL: '/api/v1',
+  baseURL: `${import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000'}/api/v1`,
   timeout: 50000, // 50 seconds timeout
   headers: {
     Accept: 'application/json',
