@@ -41,15 +41,15 @@ export const UploadPage = ({
     <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-8">
       {/* Workspace Header */}
       <div className="text-center max-w-3xl mx-auto space-y-3">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold">
-          <FileCheck2 className="w-3.5 h-3.5" />
-          <span>Interactive Audit Workspace</span>
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold">
+          <FileCheck2 className="w-3.5 h-3.5 text-blue-600" />
+          <span>Resume & Job Match Workspace</span>
         </div>
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-          Upload Resume & Target Job Description
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
+          Upload Resume & Paste Job Description
         </h1>
-        <p className="text-xs sm:text-sm text-slate-400 max-w-xl mx-auto leading-relaxed">
-          Provide your candidate credentials and target role requirements. Our dual-pass engine will cross-examine your ATS parseability, skill gaps, and keyword relevance.
+        <p className="text-sm text-slate-600 max-w-xl mx-auto leading-relaxed">
+          Provide your candidate credentials and target job requirements. Our ATS engine will cross-examine your ATS parseability, skill gaps, and keyword relevance.
         </p>
       </div>
 
@@ -58,20 +58,20 @@ export const UploadPage = ({
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="max-w-4xl mx-auto p-4 rounded-2xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs sm:text-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-lg"
+          className="max-w-4xl mx-auto p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-xs sm:text-sm flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-xs"
         >
           <div className="flex items-start gap-3">
-            <AlertCircle className="w-5 h-5 text-rose-400 shrink-0 mt-0.5" />
+            <AlertCircle className="w-5 h-5 text-rose-600 shrink-0 mt-0.5" />
             <div>
-              <p className="font-semibold text-rose-200">Analysis Encountered an Issue</p>
-              <p className="mt-0.5 text-xs text-rose-300/90">{error}</p>
+              <p className="font-semibold text-rose-900">Analysis Encountered an Issue</p>
+              <p className="mt-0.5 text-xs text-rose-700">{error}</p>
             </div>
           </div>
           <button
             type="button"
             onClick={onAnalyze}
             disabled={!canSubmit || isAnalyzing}
-            className="shrink-0 px-4 py-1.5 rounded-xl bg-rose-500/20 hover:bg-rose-500/30 border border-rose-500/40 text-rose-200 text-xs font-semibold flex items-center gap-1.5 transition-colors self-end sm:self-center cursor-pointer"
+            className="shrink-0 px-4 py-1.5 rounded-lg bg-rose-100 hover:bg-rose-200 border border-rose-300 text-rose-800 text-xs font-semibold flex items-center gap-1.5 transition-colors self-end sm:self-center cursor-pointer"
           >
             <RotateCcw className="w-3.5 h-3.5" />
             <span>Retry Analysis</span>
@@ -82,7 +82,7 @@ export const UploadPage = ({
       {/* Dual Pane Layout */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
         {/* Left: Resume Dropzone */}
-        <div className="glass-panel glass-panel-elevated rounded-3xl p-6 sm:p-7 shadow-xl flex flex-col justify-between h-full">
+        <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-7 shadow-xs flex flex-col justify-between h-full">
           <Dropzone
             file={file}
             setFile={setFile}
@@ -96,7 +96,7 @@ export const UploadPage = ({
         </div>
 
         {/* Right: Job Description */}
-        <div className="glass-panel glass-panel-elevated rounded-3xl p-6 sm:p-7 shadow-xl flex flex-col justify-between h-full">
+        <div className="bg-white border border-slate-200 rounded-2xl p-6 sm:p-7 shadow-xs flex flex-col justify-between h-full">
           <JobDescriptionInput
             jobDescription={jobDescription}
             setJobDescription={setJobDescription}
@@ -109,25 +109,25 @@ export const UploadPage = ({
       </div>
 
       {/* Additional Screening Options */}
-      <div className="glass-panel rounded-2xl p-4 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-4 border border-slate-800">
+      <div className="bg-white rounded-2xl p-4 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-4 border border-slate-200 shadow-xs">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-indigo-400">
-            <Sliders className="w-4 h-4" />
+          <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600">
+            <Sliders className="w-5 h-5" />
           </div>
           <div>
-            <h4 className="text-xs font-semibold text-white">Screening Calibration Settings</h4>
-            <p className="text-[11px] text-slate-400">Tailor the ATS parser simulation to your target company profile</p>
+            <h4 className="text-sm font-bold text-slate-900">Screening Calibration Settings</h4>
+            <p className="text-xs text-slate-500">Tailor the ATS parser simulation to your target company profile</p>
           </div>
         </div>
 
         <div className="flex items-center gap-4 w-full sm:w-auto">
           {/* Seniority */}
           <div className="flex flex-col gap-1 w-1/2 sm:w-auto">
-            <label className="text-[10px] uppercase font-bold text-slate-400">Target Seniority</label>
+            <label className="text-[10px] uppercase font-bold text-slate-500 tracking-wider">Target Seniority</label>
             <select
               value={seniority}
               onChange={(e) => setSeniority(e.target.value)}
-              className="bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-indigo-500"
+              className="bg-white border border-slate-300 rounded-lg px-3 py-1.5 text-xs text-slate-800 font-medium focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100 shadow-xs"
             >
               <option value="Entry / Junior">Entry / Junior</option>
               <option value="Mid-Level">Mid-Level</option>
@@ -139,11 +139,11 @@ export const UploadPage = ({
 
           {/* Strictness */}
           <div className="flex flex-col gap-1 w-1/2 sm:w-auto">
-            <label className="text-[10px] uppercase font-bold text-slate-400">ATS Strictness</label>
+            <label className="text-[10px] uppercase font-bold text-slate-500 tracking-wider">ATS Strictness</label>
             <select
               value={strictness}
               onChange={(e) => setStrictness(e.target.value)}
-              className="bg-slate-900 border border-slate-800 rounded-lg px-2.5 py-1.5 text-xs text-slate-200 focus:outline-none focus:border-indigo-500"
+              className="bg-white border border-slate-300 rounded-lg px-3 py-1.5 text-xs text-slate-800 font-medium focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100 shadow-xs"
             >
               <option value="Enterprise (Workday / Taleo)">Enterprise (Workday / Taleo)</option>
               <option value="Modern Tech (Greenhouse / Lever)">Modern Tech (Greenhouse / Lever)</option>
@@ -159,25 +159,25 @@ export const UploadPage = ({
           type="button"
           onClick={onAnalyze}
           disabled={!canSubmit || isExtracting || isAnalyzing}
-          className="w-full sm:w-auto px-10 py-4 rounded-2xl bg-gradient-to-r from-indigo-600 via-indigo-500 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-bold text-base flex items-center justify-center gap-3 shadow-glow-md hover:shadow-glow-lg hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-40 disabled:pointer-events-none cursor-pointer"
+          className="w-full sm:w-auto px-10 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-base flex items-center justify-center gap-3 shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 transition-all disabled:opacity-40 disabled:pointer-events-none cursor-pointer"
         >
           {isAnalyzing ? (
             <>
               <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-              <span>Running Deep ATS Audit...</span>
+              <span>Analyzing Your Resume...</span>
             </>
           ) : (
             <>
-              <Sparkles className="w-5 h-5 text-indigo-200" />
+              <Sparkles className="w-5 h-5 text-blue-200" />
               <span>Run AI Resume Analysis & Calculate Score</span>
               <ArrowRight className="w-5 h-5" />
             </>
           )}
         </button>
 
-        <p className="text-xs text-slate-500 flex items-center gap-2">
-          <Shield className="w-3.5 h-3.5 text-slate-400" />
-          Files are processed securely in memory and never shared.
+        <p className="text-xs text-slate-500 flex items-center gap-1.5 font-medium">
+          <Shield className="w-3.5 h-3.5 text-emerald-600" />
+          <span>Your resume is encrypted, processed in-memory, and never stored or shared.</span>
         </p>
       </div>
     </div>

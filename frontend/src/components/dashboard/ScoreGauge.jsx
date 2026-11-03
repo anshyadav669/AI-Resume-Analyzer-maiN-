@@ -37,57 +37,56 @@ export const ScoreGauge = ({ score = 0, candidateName, targetRole }) => {
   const strokeDashoffset = circumference - (animatedScore / 100) * circumference;
 
   return (
-    <div className="glass-panel rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden">
-      {/* Background ambient glow */}
+    <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-8 shadow-xs relative overflow-hidden">
+      {/* Ambient soft glow */}
       <div 
-        className="absolute -top-24 -left-24 w-72 h-72 rounded-full blur-3xl opacity-20 pointer-events-none"
+        className="absolute -top-24 -left-24 w-72 h-72 rounded-full blur-3xl opacity-10 pointer-events-none"
         style={{ backgroundColor: color.stroke }}
       />
 
       {/* Left Details */}
       <div className="flex-1 space-y-3 text-center md:text-left z-10">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-800 text-xs text-slate-300">
-          <Target className="w-3.5 h-3.5 text-indigo-400" />
-          <span>Role Match Target:</span>
-          <span className="font-semibold text-white">{targetRole || 'Software Engineer'}</span>
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-xs text-slate-700">
+          <Target className="w-3.5 h-3.5 text-blue-600" />
+          <span>Target Job Role:</span>
+          <span className="font-semibold text-slate-900">{targetRole || 'Software Engineer'}</span>
         </div>
 
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-          {candidateName ? `${candidateName}'s Resume Audit` : 'Resume Audit Complete'}
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+          {candidateName ? `${candidateName}'s Resume Score` : 'Resume Audit Score'}
         </h2>
 
-        <p className="text-xs sm:text-sm text-slate-400 max-w-xl leading-relaxed">
-          Based on modern ATS parsing criteria (Workday, Greenhouse) and technical recruiter screening benchmarks.
+        <p className="text-xs sm:text-sm text-slate-600 max-w-xl leading-relaxed">
+          Evaluated against top ATS algorithms (Workday, Taleo, Greenhouse) and recruiter screening benchmarks.
         </p>
 
         <div className="flex items-center justify-center md:justify-start gap-3 pt-2">
-          <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold ${color.bg} ${color.text} border ${color.border}`}>
+          <span className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-bold ${color.bg} ${color.text} border ${color.border}`}>
             <Award className="w-4 h-4" />
             {badgeText}
           </span>
-          <span className="text-xs text-slate-500">
-            Weighted composite scoring
+          <span className="text-xs text-slate-500 font-medium">
+            Mathematical 5-pillar composite scoring
           </span>
         </div>
       </div>
 
       {/* Right Circular Gauge */}
       <div className="relative flex items-center justify-center shrink-0 z-10">
-        <svg className="w-44 h-44 transform -rotate-90">
+        <svg className="w-48 h-48 transform -rotate-90">
           {/* Background circle */}
           <circle
-            cx="88"
-            cy="88"
+            cx="96"
+            cy="96"
             r={radius}
-            className="text-slate-800/80"
+            stroke="#e2e8f0"
             strokeWidth="12"
-            stroke="currentColor"
             fill="transparent"
           />
           {/* Animated progress circle */}
           <motion.circle
-            cx="88"
-            cy="88"
+            cx="96"
+            cy="96"
             r={radius}
             stroke={color.stroke}
             strokeWidth="12"
@@ -102,12 +101,12 @@ export const ScoreGauge = ({ score = 0, candidateName, targetRole }) => {
 
         {/* Center score readout */}
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center">
-          <span className="text-4xl font-black text-white tracking-tight">
+          <span className="text-5xl font-black text-slate-900 tracking-tight">
             {animatedScore}
-            <span className="text-xl text-slate-400 font-normal">%</span>
+            <span className="text-2xl text-slate-500 font-bold">%</span>
           </span>
-          <span className="text-[11px] font-semibold uppercase tracking-wider text-slate-400 mt-0.5">
-            ATS Score
+          <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500 mt-0.5">
+            Overall ATS Score
           </span>
         </div>
       </div>

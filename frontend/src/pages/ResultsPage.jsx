@@ -39,10 +39,10 @@ export const ResultsPage = ({ analysisData, onBackToUpload, onNewAnalysis }) => 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-8">
       {/* Top Action Bar */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-800/80 pb-4">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-slate-200 pb-4">
         <button
           onClick={onBackToUpload}
-          className="inline-flex items-center gap-2 text-xs font-semibold text-slate-400 hover:text-white transition-colors group"
+          className="inline-flex items-center gap-2 text-xs font-semibold text-slate-600 hover:text-slate-900 transition-colors group cursor-pointer"
         >
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
           <span>Back to Upload Workspace</span>
@@ -51,23 +51,23 @@ export const ResultsPage = ({ analysisData, onBackToUpload, onNewAnalysis }) => 
         <div className="flex items-center gap-2.5 flex-wrap">
           <button
             onClick={handleShare}
-            className="px-3.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 text-xs font-medium flex items-center gap-1.5 transition-colors"
+            className="px-3.5 py-1.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 text-xs font-semibold flex items-center gap-1.5 transition-colors shadow-xs cursor-pointer"
           >
-            {copiedLink ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Share2 className="w-3.5 h-3.5 text-slate-400" />}
+            {copiedLink ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Share2 className="w-3.5 h-3.5 text-slate-500" />}
             <span>{copiedLink ? 'Link Copied!' : 'Share Audit'}</span>
           </button>
 
           <button
             onClick={() => setIsExportOpen(true)}
-            className="px-3.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 text-xs font-medium flex items-center gap-1.5 transition-colors"
+            className="px-3.5 py-1.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 text-xs font-semibold flex items-center gap-1.5 transition-colors shadow-xs cursor-pointer"
           >
-            <Printer className="w-3.5 h-3.5 text-indigo-400" />
+            <Printer className="w-3.5 h-3.5 text-blue-600" />
             <span>Print / PDF Export</span>
           </button>
 
           <button
             onClick={onNewAnalysis}
-            className="px-4 py-1.5 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white text-xs font-semibold flex items-center gap-1.5 transition-all shadow-glow-sm"
+            className="px-4 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold flex items-center gap-1.5 transition-all shadow-xs cursor-pointer"
           >
             <RotateCcw className="w-3.5 h-3.5" />
             <span>New Resume Audit</span>
@@ -86,13 +86,13 @@ export const ResultsPage = ({ analysisData, onBackToUpload, onNewAnalysis }) => 
       <ScoreBreakdownCards scores={analysisData.scores} detailedScoring={analysisData.detailed_scoring} />
 
       {/* Tab Navigation Menu */}
-      <div className="flex items-center gap-2 border-b border-slate-800/80 overflow-x-auto pb-2 text-xs">
+      <div className="flex items-center gap-2 border-b border-slate-200 overflow-x-auto pb-2 text-xs">
         <button
           onClick={() => setActiveTab('overview')}
-          className={`px-4 py-2.5 rounded-xl font-semibold transition-all flex items-center gap-2 shrink-0 ${
+          className={`px-4 py-2 rounded-xl font-semibold transition-all flex items-center gap-2 shrink-0 cursor-pointer ${
             activeTab === 'overview'
-              ? 'bg-indigo-600 text-white shadow-glow-sm'
-              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/60'
+              ? 'bg-blue-600 text-white shadow-xs'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
           }`}
         >
           <LayoutDashboard className="w-4 h-4" />
@@ -101,25 +101,25 @@ export const ResultsPage = ({ analysisData, onBackToUpload, onNewAnalysis }) => 
 
         <button
           onClick={() => setActiveTab('skills')}
-          className={`px-4 py-2.5 rounded-xl font-semibold transition-all flex items-center gap-2 shrink-0 ${
+          className={`px-4 py-2 rounded-xl font-semibold transition-all flex items-center gap-2 shrink-0 cursor-pointer ${
             activeTab === 'skills'
-              ? 'bg-indigo-600 text-white shadow-glow-sm'
-              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/60'
+              ? 'bg-blue-600 text-white shadow-xs'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
           }`}
         >
           <Cpu className="w-4 h-4" />
-          <span>Skills & Keyword Gap Matrix</span>
-          <span className="px-1.5 py-0.2 rounded-full bg-slate-800 text-[10px] text-slate-300">
+          <span>Skills & Keyword Match</span>
+          <span className="px-1.5 py-0.2 rounded-full bg-slate-100 text-[10px] text-slate-700 font-semibold border border-slate-200">
             {analysisData.skills_analysis?.reduce((acc, c) => acc + (c.matched?.length || 0) + (c.missing?.length || 0), 0) || 0}
           </span>
         </button>
 
         <button
           onClick={() => setActiveTab('optimizer')}
-          className={`px-4 py-2.5 rounded-xl font-semibold transition-all flex items-center gap-2 shrink-0 ${
+          className={`px-4 py-2 rounded-xl font-semibold transition-all flex items-center gap-2 shrink-0 cursor-pointer ${
             activeTab === 'optimizer'
-              ? 'bg-indigo-600 text-white shadow-glow-sm'
-              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/60'
+              ? 'bg-blue-600 text-white shadow-xs'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
           }`}
         >
           <Wand2 className="w-4 h-4" />
@@ -128,10 +128,10 @@ export const ResultsPage = ({ analysisData, onBackToUpload, onNewAnalysis }) => 
 
         <button
           onClick={() => setActiveTab('verdict')}
-          className={`px-4 py-2.5 rounded-xl font-semibold transition-all flex items-center gap-2 shrink-0 ${
+          className={`px-4 py-2 rounded-xl font-semibold transition-all flex items-center gap-2 shrink-0 cursor-pointer ${
             activeTab === 'verdict'
-              ? 'bg-indigo-600 text-white shadow-glow-sm'
-              : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900/60'
+              ? 'bg-blue-600 text-white shadow-xs'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
           }`}
         >
           <ListChecks className="w-4 h-4" />
@@ -154,35 +154,35 @@ export const ResultsPage = ({ analysisData, onBackToUpload, onNewAnalysis }) => 
 
               <div className="flex flex-col gap-6">
                 {/* Executive Recruiter Verdict Summary */}
-                <div className="glass-panel rounded-3xl p-6 sm:p-7 flex flex-col justify-between border-indigo-500/20">
+                <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-7 flex flex-col justify-between shadow-xs">
                   <div>
                     <div className="flex items-center gap-2 mb-3">
-                      <Sparkles className="w-4 h-4 text-indigo-400" />
-                      <h4 className="text-sm font-bold text-white">Executive Recruiter Verdict</h4>
+                      <Sparkles className="w-4 h-4 text-blue-600" />
+                      <h4 className="text-sm font-bold text-slate-900">Executive Recruiter Verdict</h4>
                     </div>
-                    <p className="text-xs sm:text-sm text-slate-300 leading-relaxed italic">
+                    <p className="text-xs sm:text-sm text-slate-700 leading-relaxed italic">
                       "{analysisData.recruiter_verdict}"
                     </p>
                   </div>
 
-                  <div className="mt-4 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs">
-                    <span className="text-slate-400">Target Role Match:</span>
-                    <span className="text-indigo-400 font-semibold">{analysisData.target_role_detected}</span>
+                  <div className="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
+                    <span className="text-slate-500">Target Role Match:</span>
+                    <span className="text-blue-700 font-bold">{analysisData.target_role_detected}</span>
                   </div>
                 </div>
 
                 {/* Top Action Items Checklist Preview */}
-                <div className="glass-panel rounded-3xl p-6 sm:p-7 flex-1 flex flex-col justify-between">
+                <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-7 flex-1 flex flex-col justify-between shadow-xs">
                   <div>
-                    <h4 className="text-sm font-bold text-white mb-3 flex items-center gap-2">
-                      <ListChecks className="w-4 h-4 text-emerald-400" />
+                    <h4 className="text-sm font-bold text-slate-900 mb-3 flex items-center gap-2">
+                      <ListChecks className="w-4 h-4 text-blue-600" />
                       <span>Top Priority Score Boosters</span>
                     </h4>
-                    <ul className="space-y-2.5 text-xs text-slate-300">
+                    <ul className="space-y-2.5 text-xs text-slate-700">
                       {analysisData.action_items_priority?.slice(0, 3).map((item, idx) => (
                         <li key={idx} className="flex items-start gap-2.5">
-                          <span className="text-emerald-400 font-bold shrink-0">#{idx + 1}</span>
-                          <span className="leading-relaxed">{item}</span>
+                          <span className="text-blue-600 font-bold shrink-0">#{idx + 1}</span>
+                          <span className="leading-relaxed font-medium">{item}</span>
                         </li>
                       ))}
                     </ul>
@@ -190,7 +190,7 @@ export const ResultsPage = ({ analysisData, onBackToUpload, onNewAnalysis }) => 
 
                   <button
                     onClick={() => setActiveTab('verdict')}
-                    className="mt-5 text-xs text-indigo-400 hover:text-indigo-300 font-semibold flex items-center gap-1.5 self-start"
+                    className="mt-5 text-xs text-blue-600 hover:text-blue-700 font-bold flex items-center gap-1.5 self-start cursor-pointer"
                   >
                     <span>View full action plan & section audits</span>
                     <ArrowRight className="w-3.5 h-3.5" />

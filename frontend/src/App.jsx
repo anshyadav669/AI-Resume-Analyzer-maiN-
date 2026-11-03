@@ -167,7 +167,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-navy-950 text-slate-100 selection:bg-indigo-500 selection:text-white bg-grid-pattern transition-colors duration-200">
+    <div className="min-h-screen flex flex-col bg-white text-slate-800 selection:bg-blue-100 selection:text-blue-900">
       {/* Toast Notification Layer */}
       <ToastContainer toasts={toasts} onRemove={removeToast} />
 

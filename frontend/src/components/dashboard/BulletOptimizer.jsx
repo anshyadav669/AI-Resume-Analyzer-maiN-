@@ -39,19 +39,19 @@ export const BulletOptimizer = ({ initialBullets = [], targetRole = '' }) => {
   };
 
   return (
-    <div className="glass-panel rounded-3xl p-6 sm:p-8 flex flex-col gap-6">
+    <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 flex flex-col gap-6 shadow-xs">
       <div>
         <div className="flex items-center justify-between">
-          <h3 className="text-base font-bold text-white flex items-center gap-2">
-            <Sparkles className="w-4 h-4 text-indigo-400" />
+          <h3 className="text-base font-bold text-slate-900 flex items-center gap-2">
+            <Sparkles className="w-4 h-4 text-blue-600" />
             <span>AI Bullet Point Optimizer (Google XYZ Formula)</span>
           </h3>
-          <span className="text-xs px-2.5 py-0.5 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 font-medium">
+          <span className="text-xs px-2.5 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200 font-medium">
             Accomplished [X] measured by [Y] by doing [Z]
           </span>
         </div>
-        <p className="text-xs text-slate-400 mt-1">
-          ATS parsers and senior recruiters rank achievement-oriented, metric-driven statements significantly higher than passive duty descriptions.
+        <p className="text-xs text-slate-500 mt-1">
+          Hiring managers and ATS parsers favor quantifiable, action-driven statements over generic task lists.
         </p>
       </div>
 
@@ -63,24 +63,24 @@ export const BulletOptimizer = ({ initialBullets = [], targetRole = '' }) => {
             return (
               <div
                 key={idx}
-                className="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 flex flex-col gap-4 hover:border-slate-700 transition-all"
+                className="rounded-2xl border border-slate-200 bg-slate-50/50 p-5 flex flex-col gap-4 shadow-xs"
               >
                 {/* Before */}
                 <div className="flex flex-col gap-1.5">
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-rose-400">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-rose-600">
                     Original Bullet Point:
                   </span>
-                  <p className="text-xs text-slate-300 font-mono bg-slate-950 p-3 rounded-xl border border-slate-900">
+                  <p className="text-xs text-slate-700 bg-white p-3 rounded-xl border border-slate-200">
                     "{item.original}"
                   </p>
                 </div>
 
                 {/* Critique */}
                 {item.critique && (
-                  <div className="flex items-start gap-2 text-xs text-slate-400 bg-slate-900/90 p-2.5 rounded-xl border border-slate-800/80">
-                    <Lightbulb className="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+                  <div className="flex items-start gap-2 text-xs text-slate-600 bg-amber-50/70 p-2.5 rounded-xl border border-amber-200">
+                    <Lightbulb className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
                     <p className="leading-relaxed text-[11px]">
-                      <strong className="text-slate-300">Why optimize: </strong>
+                      <strong className="text-slate-900 font-semibold">Why rewrite: </strong>
                       {item.critique}
                     </p>
                   </div>
@@ -89,18 +89,18 @@ export const BulletOptimizer = ({ initialBullets = [], targetRole = '' }) => {
                 {/* After */}
                 <div className="flex flex-col gap-1.5">
                   <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400 flex items-center gap-1.5">
-                      <Sparkles className="w-3 h-3 text-emerald-400" />
-                      AI Recommended Rewrite (High Impact):
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-700 flex items-center gap-1.5">
+                      <Sparkles className="w-3 h-3 text-emerald-600" />
+                      Recommended High-Impact Rewrite:
                     </span>
                     <button
                       onClick={() => handleCopy(item.improved, idx)}
-                      className="text-xs flex items-center gap-1 text-indigo-400 hover:text-indigo-300 font-medium transition-colors"
+                      className="text-xs flex items-center gap-1 text-blue-600 hover:text-blue-700 font-semibold transition-colors cursor-pointer"
                     >
                       {isCopied ? (
                         <>
-                          <Check className="w-3.5 h-3.5 text-emerald-400" />
-                          <span className="text-emerald-400">Copied!</span>
+                          <Check className="w-3.5 h-3.5 text-emerald-600" />
+                          <span className="text-emerald-700">Copied!</span>
                         </>
                       ) : (
                         <>
@@ -110,7 +110,7 @@ export const BulletOptimizer = ({ initialBullets = [], targetRole = '' }) => {
                       )}
                     </button>
                   </div>
-                  <p className="text-xs text-emerald-200 font-mono bg-emerald-950/20 p-3.5 rounded-xl border border-emerald-500/30 leading-relaxed">
+                  <p className="text-xs text-emerald-950 font-medium bg-emerald-50/80 p-3.5 rounded-xl border border-emerald-200 leading-relaxed">
                     "{item.improved}"
                   </p>
                 </div>
@@ -123,13 +123,13 @@ export const BulletOptimizer = ({ initialBullets = [], targetRole = '' }) => {
       </div>
 
       {/* Interactive Live Bullet Rewriter */}
-      <div className="border-t border-slate-800/80 pt-6">
-        <h4 className="text-sm font-semibold text-white mb-2 flex items-center gap-2">
-          <Wand2 className="w-4 h-4 text-indigo-400" />
-          Test & Rewrite Any Custom Bullet Point
+      <div className="border-t border-slate-200 pt-6">
+        <h4 className="text-sm font-bold text-slate-900 mb-1 flex items-center gap-2">
+          <Wand2 className="w-4 h-4 text-blue-600" />
+          Test & Rewrite Any Bullet Point
         </h4>
-        <p className="text-xs text-slate-400 mb-3">
-          Paste any sentence from your resume to generate an instant quantifiable rewrite.
+        <p className="text-xs text-slate-500 mb-3">
+          Paste any phrase from your resume to generate an instant quantifiable rewrite.
         </p>
 
         <form onSubmit={handleCustomOptimize} className="flex flex-col gap-3">
@@ -139,21 +139,21 @@ export const BulletOptimizer = ({ initialBullets = [], targetRole = '' }) => {
               onChange={(e) => setCustomBullet(e.target.value)}
               placeholder="e.g., Managed databases and wrote backend code for the application..."
               rows={2}
-              className="w-full rounded-xl bg-slate-900 border border-slate-800 p-3 text-xs text-slate-200 placeholder:text-slate-500 focus:outline-none focus:border-indigo-500 resize-none font-mono"
+              className="w-full rounded-xl bg-white border border-slate-300 p-3 text-xs text-slate-800 placeholder:text-slate-400 focus:outline-none focus:border-blue-600 focus:ring-2 focus:ring-blue-100 resize-none shadow-xs"
             />
           </div>
 
           <div className="flex items-center justify-between">
             {error ? (
-              <span className="text-xs text-rose-400">{error}</span>
+              <span className="text-xs text-rose-600 font-medium">{error}</span>
             ) : (
-              <span className="text-[11px] text-slate-500">Powered by Gemini Executive Rewriter</span>
+              <span className="text-[11px] text-slate-500">Optimized with Google XYZ formatting</span>
             )}
 
             <button
               type="submit"
               disabled={isOptimizing || !customBullet.trim()}
-              className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 disabled:opacity-50 text-white font-medium text-xs flex items-center gap-1.5 transition-all shadow-md shadow-indigo-600/20"
+              className="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white font-semibold text-xs flex items-center gap-1.5 transition-all shadow-xs cursor-pointer"
             >
               {isOptimizing ? (
                 <>
@@ -163,7 +163,7 @@ export const BulletOptimizer = ({ initialBullets = [], targetRole = '' }) => {
               ) : (
                 <>
                   <Sparkles className="w-3.5 h-3.5" />
-                  Rewrite with Action Verb & Metrics
+                  Rewrite Bullet Point
                 </>
               )}
             </button>
@@ -171,19 +171,19 @@ export const BulletOptimizer = ({ initialBullets = [], targetRole = '' }) => {
         </form>
 
         {customResult && (
-          <div className="mt-4 p-4 rounded-2xl bg-indigo-950/30 border border-indigo-500/30 flex flex-col gap-2">
+          <div className="mt-4 p-4 rounded-2xl bg-blue-50/50 border border-blue-200 flex flex-col gap-2">
             <div className="flex items-center justify-between">
-              <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400">
+              <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-700">
                 Rewritten Output:
               </span>
               <button
                 onClick={() => handleCopy(customResult.optimized, 'custom')}
-                className="text-xs flex items-center gap-1 text-indigo-400 hover:text-indigo-300 font-medium"
+                className="text-xs flex items-center gap-1 text-blue-600 hover:text-blue-700 font-semibold cursor-pointer"
               >
                 {copiedIdx === 'custom' ? (
                   <>
-                    <Check className="w-3.5 h-3.5 text-emerald-400" />
-                    <span className="text-emerald-400">Copied!</span>
+                    <Check className="w-3.5 h-3.5 text-emerald-600" />
+                    <span className="text-emerald-700">Copied!</span>
                   </>
                 ) : (
                   <>
@@ -193,12 +193,12 @@ export const BulletOptimizer = ({ initialBullets = [], targetRole = '' }) => {
                 )}
               </button>
             </div>
-            <p className="text-xs font-mono text-emerald-200 leading-relaxed">
+            <p className="text-xs text-slate-900 font-medium leading-relaxed bg-white p-3 rounded-xl border border-blue-100">
               "{customResult.optimized}"
             </p>
             {customResult.critique && (
-              <p className="text-[11px] text-slate-400 mt-1">
-                <span className="font-semibold text-slate-300">Analysis: </span>
+              <p className="text-[11px] text-slate-600 mt-1">
+                <span className="font-semibold text-slate-800">Analysis: </span>
                 {customResult.critique}
               </p>
             )}

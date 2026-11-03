@@ -3,57 +3,65 @@ import confetti from 'canvas-confetti';
 export const getScoreColor = (score) => {
   if (score >= 80) {
     return {
-      text: 'text-emerald-400',
-      bg: 'bg-emerald-500/10',
-      border: 'border-emerald-500/30',
-      ring: 'ring-emerald-500/20',
-      gradient: 'from-emerald-500 to-teal-400',
-      stroke: '#10b981',
+      text: 'text-emerald-700',
+      bg: 'bg-emerald-50',
+      border: 'border-emerald-200',
+      ring: 'ring-emerald-200',
+      gradient: 'from-emerald-500 to-teal-500',
+      stroke: '#059669',
+      badge: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+      dot: 'bg-emerald-500',
     };
   }
   if (score >= 65) {
     return {
-      text: 'text-indigo-400',
-      bg: 'bg-indigo-500/10',
-      border: 'border-indigo-500/30',
-      ring: 'ring-indigo-500/20',
-      gradient: 'from-indigo-500 to-cyan-400',
-      stroke: '#6366f1',
+      text: 'text-blue-700',
+      bg: 'bg-blue-50',
+      border: 'border-blue-200',
+      ring: 'ring-blue-200',
+      gradient: 'from-blue-600 to-indigo-600',
+      stroke: '#2563eb',
+      badge: 'bg-blue-50 text-blue-700 border-blue-200',
+      dot: 'bg-blue-600',
     };
   }
   if (score >= 50) {
     return {
-      text: 'text-amber-400',
-      bg: 'bg-amber-500/10',
-      border: 'border-amber-500/30',
-      ring: 'ring-amber-500/20',
-      gradient: 'from-amber-500 to-orange-400',
-      stroke: '#f59e0b',
+      text: 'text-amber-700',
+      bg: 'bg-amber-50',
+      border: 'border-amber-200',
+      ring: 'ring-amber-200',
+      gradient: 'from-amber-500 to-orange-500',
+      stroke: '#d97706',
+      badge: 'bg-amber-50 text-amber-700 border-amber-200',
+      dot: 'bg-amber-500',
     };
   }
   return {
-    text: 'text-rose-400',
-    bg: 'bg-rose-500/10',
-    border: 'border-rose-500/30',
-    ring: 'ring-rose-500/20',
-    gradient: 'from-rose-500 to-red-400',
-    stroke: '#f43f5e',
+    text: 'text-rose-700',
+    bg: 'bg-rose-50',
+    border: 'border-rose-200',
+    ring: 'ring-rose-200',
+    gradient: 'from-rose-500 to-red-500',
+    stroke: '#e11d48',
+    badge: 'bg-rose-50 text-rose-700 border-rose-200',
+    dot: 'bg-rose-500',
   };
 };
 
 export const getScoreBadge = (score) => {
-  if (score >= 85) return 'Top Tier (ATS Passed)';
-  if (score >= 70) return 'Competitive Match';
-  if (score >= 50) return 'Average Match';
-  return 'Requires Significant Work';
+  if (score >= 85) return 'Exceptional - Top 5% ATS Tier';
+  if (score >= 70) return 'Strong Match - Interview Ready';
+  if (score >= 50) return 'Average Match - Actionable Gaps';
+  return 'Requires Work - Critical Gaps';
 };
 
 export const triggerConfetti = () => {
   confetti({
-    particleCount: 80,
-    spread: 70,
+    particleCount: 70,
+    spread: 60,
     origin: { y: 0.6 },
-    colors: ['#6366f1', '#10b981', '#38bdf8', '#f59e0b'],
+    colors: ['#2563eb', '#059669', '#0284c7', '#d97706'],
   });
 };
 
@@ -98,30 +106,32 @@ Key Responsibilities:
 - Implement automated evaluation benchmarks and guardrails for hallucination detection.
 
 Requirements:
-- 3+ years experience building AI/ML applications in Python.
-- Proven experience with LLM orchestration (LangChain, LlamaIndex), RAG, and prompt engineering.
-- Deep familiarity with PyTorch, Pandas, NumPy, Hugging Face, and Vector DBs.
-- Strong software engineering habits (git, CI/CD, Docker, API design).`,
+- 3+ years experience building machine learning or LLM applications in Python.
+- Proven experience with FastAPI, PyTorch, LangChain or LlamaIndex.
+- Strong background in vector embeddings, semantic search, and retrieval-augmented generation.
+- Experience with Docker, cloud infrastructure (AWS/GCP), and CI/CD pipelines.
+- Degree in Computer Science, Data Science, or related STEM field.`,
   },
   {
-    id: 'devops',
-    title: 'DevOps & Cloud Infrastructure Engineer',
-    company: 'ScaleOps Networks',
-    text: `Role: Senior DevOps / Platform Engineer
-Location: Remote (US)
+    id: 'frontend',
+    title: 'Senior Frontend Engineer',
+    company: 'Elevate Digital Labs',
+    text: `Role: Senior Frontend Engineer (React / TypeScript / Next.js)
+Location: Remote
 
 Key Responsibilities:
-- Architect and maintain enterprise AWS cloud infrastructure using Terraform (Infrastructure-as-Code).
-- Deploy and manage high-availability Kubernetes clusters (EKS) across multi-region environments.
-- Build reliable CI/CD delivery pipelines using GitHub Actions, ArgoCD, and Helm.
-- Implement comprehensive monitoring, alerting, and distributed tracing with Prometheus, Grafana, and Datadog.
-- Drive security compliance, zero-trust network policies, and automated vulnerability scanning.
+- Architect high-performance, accessible web applications using React, Next.js, and TypeScript.
+- Build clean, reusable component systems with Tailwind CSS and modern design systems.
+- Optimize client-side rendering, core web vitals, and bundle size for maximum page speed.
+- Collaborate with product designers in Figma to transform high-fidelity mocks into responsive interfaces.
+- Write unit, integration, and E2E tests using Jest, React Testing Library, and Playwright.
 
 Requirements:
-- 4+ years dedicated DevOps, SRE, or Cloud Engineering experience.
-- Deep expertise in AWS, Docker, Kubernetes, and Terraform.
-- Scripting mastery in Python, Bash, or Go.
-- Experience with zero-downtime deployment strategies.`,
+- 4+ years of professional frontend engineering experience.
+- Deep expertise in React, TypeScript, JavaScript (ES6+), and modern CSS (Tailwind CSS).
+- Experience with Next.js App Router, server-side rendering (SSR), and state management.
+- Strong knowledge of web accessibility (WCAG), responsive design, and cross-browser testing.
+- Bachelor's degree in Computer Science, Web Development, or equivalent practical experience.`,
   },
 ];
 
@@ -133,13 +143,13 @@ Senior Full-Stack Engineer with 6+ years of experience designing and scaling dis
 
 TECHNICAL SKILLS
 Languages: Python, JavaScript, TypeScript, Go, SQL, HTML5/CSS3
-Frameworks: FastAPI, React, Node.js, Next.js, Express, Tailwind CSS
+Frameworks & Libraries: FastAPI, React, Node.js, Next.js, Express, Tailwind CSS
 Databases & Caching: PostgreSQL, Redis, MongoDB, Elasticsearch
 Cloud & DevOps: AWS (ECS, Lambda, S3), Docker, Kubernetes, CI/CD (GitHub Actions), Terraform
 
 PROFESSIONAL EXPERIENCE
 Senior Full-Stack Engineer | Nexus Cloud Systems (2022 - Present)
-- Architected and deployed microservices backend using FastAPI and PostgreSQL, supporting 500,000+ monthly active users with 99.99% uptime.
+- Architected and deployed microservices backend using FastAPI and PostgreSQL, supporting 500,000+ monthly active users with 99.9% uptime.
 - Engineered dynamic analytics dashboard in React and Tailwind CSS, reducing client render times by 35% across 20+ enterprise clients.
 - Implemented distributed Redis caching layer, dropping database query load by 48% during peak transaction periods.
 - Mentored 4 junior engineers on code quality, testing best practices, and automated CI/CD pipeline deployments.
@@ -152,4 +162,5 @@ Software Engineer | Horizon Tech Labs (2019 - 2022)
 
 EDUCATION & CERTIFICATIONS
 Bachelor of Science in Computer Science | University of California, Berkeley (2015 - 2019)
-AWS Certified Solutions Architect – Associate (2023)`;
+AWS Certified Solutions Architect – Associate (2023)
+`;

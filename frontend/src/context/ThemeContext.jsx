@@ -3,28 +3,25 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
+  // Always default to clean, plain white light theme
   const [theme, setTheme] = useState(() => {
-    return localStorage.getItem('resume_ats_theme') || 'dark';
+    return localStorage.getItem('resume_ats_theme') || 'light';
   });
 
   useEffect(() => {
     const root = document.documentElement;
-    if (theme === 'dark') {
-      root.classList.add('dark');
-      root.classList.remove('light');
-    } else {
-      root.classList.add('light');
-      root.classList.remove('dark');
-    }
-    localStorage.setItem('resume_ats_theme', theme);
+    root.classList.remove('dark');
+    root.classList.add('light');
+    localStorage.setItem('resume_ats_theme', 'light');
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
+    // Keep clean light theme
+    setTheme('light');
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme: 'light', toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   );

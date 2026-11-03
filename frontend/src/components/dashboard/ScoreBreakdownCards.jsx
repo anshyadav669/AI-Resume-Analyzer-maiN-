@@ -99,34 +99,34 @@ export const ScoreBreakdownCards = ({ scores, detailedScoring = null }) => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: idx * 0.06 }}
-              className="glass-panel glass-panel-hover rounded-2xl p-4 sm:p-5 flex flex-col justify-between"
+              className="bg-white border border-slate-200 rounded-2xl p-4 sm:p-5 flex flex-col justify-between shadow-xs hover:border-slate-300 transition-all"
             >
               <div>
                 <div className="flex items-center justify-between mb-2.5">
-                  <div className="w-8 h-8 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-indigo-400">
+                  <div className="w-8 h-8 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600">
                     <Icon className="w-4 h-4" />
                   </div>
-                  <span className="text-[10px] font-semibold text-slate-400 bg-slate-900/80 px-2 py-0.5 rounded-full border border-slate-800 tracking-wider">
+                  <span className="text-[10px] font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded-full border border-slate-200 tracking-wider">
                     {item.weight}
                   </span>
                 </div>
 
-                <h4 className="text-xs font-bold text-slate-100 mb-1">{item.title}</h4>
-                <p className="text-[11px] text-slate-400 leading-relaxed mb-3">{item.desc}</p>
+                <h4 className="text-xs font-bold text-slate-900 mb-1">{item.title}</h4>
+                <p className="text-[11px] text-slate-500 leading-relaxed mb-3">{item.desc}</p>
               </div>
 
               <div>
                 <div className="flex items-baseline justify-between mb-1.5">
-                  <span className={`text-xl font-black ${color.text} tracking-tight`}>
+                  <span className={`text-2xl font-black ${color.text} tracking-tight`}>
                     <AnimatedCounter target={item.score} />%
                   </span>
-                  <span className="text-[10px] font-medium text-slate-400">
+                  <span className="text-[11px] font-semibold text-slate-500">
                     +{item.contrib} pts
                   </span>
                 </div>
 
                 {/* Skill match progress bar */}
-                <div className="w-full h-1.5 rounded-full bg-slate-800/80 overflow-hidden">
+                <div className="w-full h-1.5 rounded-full bg-slate-100 border border-slate-200/80 overflow-hidden">
                   <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: `${item.score}%` }}
@@ -145,19 +145,19 @@ export const ScoreBreakdownCards = ({ scores, detailedScoring = null }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.35 }}
-        className="glass-panel rounded-2xl p-3.5 sm:p-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs border border-indigo-500/20"
+        className="bg-white border border-slate-200 rounded-2xl p-3.5 sm:p-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs shadow-xs"
       >
         <div className="flex items-center gap-2.5 flex-wrap">
-          <div className="w-7 h-7 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400 shrink-0">
+          <div className="w-7 h-7 rounded-lg bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600 shrink-0">
             <Calculator className="w-3.5 h-3.5" />
           </div>
-          <span className="font-semibold text-slate-200">Mathematical Formula:</span>
-          <code className="text-indigo-300 font-mono text-[11px] bg-slate-900/90 px-2.5 py-1 rounded-lg border border-slate-800 break-all">
+          <span className="font-bold text-slate-900">Score Calculation:</span>
+          <code className="text-blue-700 font-mono text-[11px] bg-slate-50 px-2.5 py-1 rounded-lg border border-slate-200 break-all font-semibold">
             {formulaStr}
           </code>
         </div>
-        <div className="flex items-center gap-1.5 text-[11px] text-slate-400 self-end md:self-auto shrink-0">
-          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+        <div className="flex items-center gap-1.5 text-[11px] text-emerald-700 font-semibold self-end md:self-auto shrink-0">
+          <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
           <span>Evidence-Based & Transparent (0–100)</span>
         </div>
       </motion.div>
